@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="styleSheet" href="assets/css/bootstrap.min.css">
+    <link rel="styleSheet" href="assets/css/login.css">
+    <link rel="styleSheet" href="assets/css/font.css">
+</head>
+
+<body>
+
+
+
+
+    <div class="container-fluid">
+
+
+        <div class="row no-gutters justify-content-end">
+            <div class="col">
+                <div>
+                    <div class="back-btn">
+                        <a class="btn" id="backBtn" href="homePage.html">بازگشت</a>
+                    </div>
+                </div>
+                <div class="body-form">
+                    <div class="login-form col-md-12 w-100">
+                        <div class="login-des row justify-content-center">
+                            <strong class="login-note h6 fw-bolder d-block">سلام روژایی عزیز (:</strong>
+                        </div>
+                        <div class="login-phone-number-input row justify-content-center">
+                            <label class="login-hint" for="phoneNumber">لطفا شماره تماس خود را وارد نمایید</label>
+                            <input dir="ltr" class="number-input" id="phoneNumber" type="text" placeholder="09*********"
+                                value="" autofocus="">
+                        </div>
+                        <div class="empty-input-alert visually-hidden">
+                            <div class="alert alert-danger row justify-content-center" role="alert">شماره تماس وارد شده
+                                صحیح نمی‌باشد!
+                            </div>
+                        </div>
+                        <div class="number-entered row justify-content-center visually-hidden">
+                            <div class="alert alert-success col-12" role="alert">
+                                <span>تا لحظاتی دیگر کد ورود برای شما ارسال خواهد شد</span>
+                            </div>
+                            <label class="mb-0">لطفا کد ارسال شده را وارد نمایید</label>
+                            <input type="text" class="form-control code-insert justify-content-center">
+                            <div class="wrong-code-alert alert alert-danger row justify-content-center visually-hidden"
+                                role="alert"> کد وارد شده صحیح نمی‌باشد!
+                            </div>
+                        </div>
+                        <div class="login-sumbit-btn row justify-content-center">
+                            <a class="login-btn btn" href="#">ورود با رمز یکبار مصرف</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="body-img w-100">
+                    <div class="login-img h-100 left-0">
+                        <a class="back-to-home-page" href="../roja new/homePage.html"><img class="login-img col-md-12"
+                                src="assets/img/login.jpg"></a>
+                    </div>
+                    <div
+                        class="login-info position-absolute start-0 bottom-1 mb-2 d-none d-md-flex align-items-center justify-content-center w-100">
+                        <span class="login-info-phone-number text-white opacity-50">021-57826000</span>
+                        <span class="login-info-space mx-2 text-white"> | </span>
+                        <img class="login-info-logo opacity-50" src="assets/img/logo-white.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="assets/js/jquery-3.7.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/login.js"></script>
+
+</body>
+
+</html>

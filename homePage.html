@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه معتبر خرید محصولات آرایشی و بهداشتی و عطر | روژا شاپ</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+    <link rel="styleSheet" href="assets/css/bootstrap.min.css">
+    <link rel="styleSheet" href="assets/css/font.css">
+    <link rel="styleSheet" href="assets/css/homePage.css">
+    <link rel="styleSheet" href="assets/css/cart.css">
+    <link rel="styleSheet" href="assets/css/allproducts.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <!-- add to basket modal -->
+    <div class="modal fade" id="basket-add-product-modal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content" data-bs-toggle="animation" data-bs-animation="fade-in">
+                <div class="modal-body text-success">
+                    <p style="text-align: center;">محصول به سبد خرید اضافه شد!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- remove product from basket alert -->
+    <div class="alert-box">
+        <div class="alert alert-danger remove-from-basket-alert visually-hidden">
+            <!-- <strong>!</strong><span>"sample" از سبد خرید شما حذف شد</span> -->
+        </div>
+    </div>
+
+
+
+    <!-- basket inner + products + info -->
+    <div class="basket-inner">
+        <button type="button" class="btn-close" aria-label="Close"></button>
+        <div class="to-checkout-page">
+            <a class="checkout-link" href="../roja new/finalBasket.html"><span class="checkout-span">تسویه‌ی سبد
+                    خرید</span></a>
+        </div>
+        <div class="basket-inner-products-list">
+
+        </div>
+        <div class="basket-inner-total">
+            <div class="basket-inner-info-row">
+                <span>مبلغ قابل پرداخت : <strong id="totalPrice">0</strong></span>
+            </div>
+            <div class="basket-inner-info-row">
+                <span>تعداد : <strong id="totalCount">0</strong></span>
+            </div>
+            <div class="basket-inner-info-row">
+                <span>سود شما : <strong id="totalDiscount">0</strong></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- home page navbar -->
+    <div class="header w-100">
+        <div class="row roja-fixed-navbar">
+            <div class="menubar roja-menubar col-lg-12">
+                <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+                        <img src="assets/img/logo.png" alt="فروشگاه روژا" width="130" height="40"
+                            class="d-inline-block align-text-top" id="rojaLogo">
+                        <div class="d-flex">
+                            <div class="search-box">
+                                <input class="form-control me-2" id="searchInput" type="search"
+                                    placeholder=" جستجو در تمام محصولات..." aria-label="Search">
+                                <div class="search-results-box visually-hidden">
+                                    <!-- search results -->
+                                    <div class="search-results">
+                                        <!-- <div class="serch-result-test">
+                                                <a class="search-result-link" href="#" style="text-decoration:none">
+                                                    <img class="search-result-img" src="assets/img/category/2.jpeg"
+                                                        title="" alt="">
+                                                    <div class="search-result-info">
+                                                        <span class="search-result-title row">name</span>
+                                                        <span class="search-result-price row">9000</span>
+                                                    </div>
+                                                </a>
+                                            </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline-success" id="searchBtn" type="submit">جستجو</button>
+
+                            <div class="back-btn visually-hidden">
+                                <a class="btn" id="backBtn" href="homePage.html">بازگشت به صفحه‌ی اصلی</a>
+                            </div>
+
+                        </div>
+                        <div class="collapse navbar-collapse roja-nav" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active login" aria-current="page"
+                                        href="../roja new/login.html">ورود/عضویت</a>
+                                    <ul class="dropdown-menu login-user-dropdown rounded-0 rounded-bottom show visually-hidden"
+                                        aria-labelledby="navbarDropdown">
+                                        <li
+                                            class="dropdown-menu-item w-100 d-flex justify-content-start align-items-center btn">
+                                            <div class="ps-2 d-flex align-items-center" id="userProfileBasketShow">
+                                                <a id="userProfileBasketShowLink" href="finalBasket.html">مشاهده‌ی سبد
+                                                    خرید</a>
+                                            </div>
+                                        </li>
+                                        <li
+                                            class="dropdown-menu-item w-100 d-flex justify-content-start align-items-center btn">
+                                            <div class="ps-2 d-flex align-items-center" id="userProfileLogout">
+                                                <a id="userProfileLogoutLink">خروج از حساب
+                                                    کاربری</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item basket-logo">
+                                    <button type="button" class="btn position-relative basket-btn">
+                                        <a class="nav-link basket" href="#"><img class="material-icons"
+                                                src="assets/img/basket-icon.png"></a>
+                                        <span
+                                            class="position-absolute top-90 start-90 translate-middle badge rounded-pill bg-dark text-light"
+                                            id="basket-badge">
+                                            0
+                                            <span class="visually-hidden">basket-products</span>
+                                        </span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle mb-0 h1" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                دسته بندی محصولات
+                            </a>
+                            <ul class="dropdown-menu products-categorize-dropdown rounded-0 rounded-bottom show visually-hidden"
+                                aria-labelledby="navbarDropdown" style="width: 100%; padding: 15px; margin-top: 10px;">
+                                <li class="dropdown-menu-item w-100 d-flex justify-content-start align-items-center">
+                                    <div class="w-75 ps-2 d-flex align-items-center"><a href="bodyShower.html"
+                                            id="bodyShower">شوینده بدن</a></div>
+                                </li>
+                                <li class="dropdown-menu-item w-100 d-flex justify-content-start align-items-center">
+                                    <div class="w-75 ps-2 d-flex align-items-center"><a href="bodyLotion.html"
+                                            id="bodyLotion"> لوسیون بدن</a></div>
+                                </li>
+                                <li class="dropdown-menu-item w-100 d-flex justify-content-start align-items-center">
+                                    <div class="w-75 ps-2 d-flex align-items-center"><a href="deodorant.html"
+                                            id="deodorant">دئودورانت</a></div>
+                                </li>
+                                <li class="dropdown-menu-item w-100 d-flex justify-content-start align-items-center">
+                                    <div class="w-75 ps-2 d-flex align-items-center"><a id="bodySplash"
+                                            href="bodySplash.html">بادی اسپلش</a></div>
+                                </li>
+                                <li class="dropdown-menu-item w-100 d-flex justify-content-start align-items-center">
+                                    <div class="w-75 ps-2 d-flex align-items-center"><a id="allProductsLink"
+                                            href="allproducts.html">مشاهده‌ی تمام محصولات</a></div>
+                                </li>
+                            </ul>
+                        </li>
+                        <ul id="righty" class="navbar-nav">
+                            <li class="nav-item second-nav">
+                                <a class="nav-link" href="#" aria-disabled="true"> برندها </a>
+                            </li>
+                            <li class="nav-item second-nav">
+                                <a class="nav-link" href="#" aria-disabled="true"> کارت هدیه روژا </a>
+                            </li>
+                            <li class="nav-item second-nav">
+                                <a class="nav-link" href="#" aria-disabled="true"> مشاوره رایگان </a>
+                            </li>
+                            <li class="nav-item second-nav">
+                                <a class="nav-link" href="#" aria-disabled="true"> فروش سازمانی </a>
+                            </li>
+                            <li class="nav-item second-nav">
+                                <a class="nav-link" href="#" aria-disabled="true"> وبلاگ روژا </a>
+                            </li>
+                            <li class="nav-item second-nav">
+                                <a class="nav-link" style="color: deeppink;" href="#" aria-disabled="true"> فروش ویژه
+                                    روژا </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav" style="justify-content: left;">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" aria-disabled="true"> باشگاه مشتریان </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" aria-disabled="true"> شعب روژا </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="second-body-home-page">
+
+
+        <!-- home page slider -->
+        <div class="row">
+            <div class="slider-top col-lg-12">
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
+                            aria-label="Slide 6"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                            aria-label="Slide 5"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                            aria-label="Slide 5"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="assets/img/slider/1.gif" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/slider/2.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/slider/3.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/slider/4.gif" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/slider/5.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/slider/6.jpg" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+
+
+            <div class="row">
+
+                <!-- first 4 boxes / category / home page -->
+                <div class="boxes4-top d-flex w-100">
+                    <a id="box1topA" class="w-100" href="bodyShower.html">
+                        <img id="box1top" class="h-100" src="assets/img/category1/1.jpeg" title="" alt="">
+                    </a>
+                    <a id="box2topA" class="w-100" href="bodyLotion.html">
+                        <img id="box2top" class="h-100" src="assets/img/category1/2.jpeg" title="" alt="">
+                    </a>
+                    <a id="box3topA" class="w-100" href="deodorant.html">
+                        <img id="box3top" class="h-100" src="assets/img/category1/3.jpeg" title="" alt="">
+                    </a>
+                    <a id="box4topA" class="w-100" href="bodySplash.html">
+                        <img id="box4top" class="h-100" src="assets/img/category1/4.jpeg" title="" alt="">
+                    </a>
+                </div>
+
+                <!-- first slider / suggestion products / home page -->
+                <div class="suggestions-selection">
+                </div>
+
+                <!-- top 2 boxes / category 2 / home page -->
+                <div class="boxes2-top w-100 d-flex">
+                    <div class="boxes2-top-left">
+                        <img class="w-100" id="boxes2topFirst" src="assets/img/box1/1.jpg" title="" alt="">
+                    </div>
+                    <div class="boxes2-top-right">
+                        <img class="w-100" id="boxes2topSecond" src="assets/img/box1/2.jpg" title="" alt="">
+                    </div>
+                </div>
+
+                <!-- second slider / newest products / home page -->
+                <div class="newest-selection">
+                </div>
+
+                <!-- second 4 boxes / category 2 / home page -->
+                <div class="4boxes-category">
+                </div>
+
+                <!-- second slider / most sale products / home page -->
+                <div class="mostsale-selection">
+                </div>
+
+                <!-- not important elements -->
+                <div class="not-important">
+                    <div class="brands">
+                    </div>
+
+
+                    <div class="article-selection">
+                    </div>
+
+                    <div class="videos-selection">
+                    </div>
+                </div>
+
+                <!-- footer divisions (2) / home page -->
+                <div class="footers">
+                    <div class="footer-top row" style="padding: 10px;">
+                        <div class="bg-black w-100 py-3 d-flex rounded-3 justify-content-around align-items-center">
+                            <div class="d-flex flex-column w-100 px-5">
+                                <strong style="color: #ff0869;">تماس با روژا: ۶۰۰۰ ۵۷۸۲ ۰۲۱</strong>
+                                <span class="text-white">شنبه تا چهارشنبه از ساعت ۸:۳۰ تا ۱۷:۰۰
+                                    <br> پنج‌شنبه ها از ۸:۳۰ تا ۱۳</span>
+                            </div>
+                            <div class="d-flex flex-column py-2 w-100 px-5 border-end border-start border-secondary">
+                                <strong class="text-white mb-2 text-center">
+                                    از تخفیف‌ها و جدیدترین‌های روژا با خبر شوید
+                                </strong>
+                                <div role="form" class="custom_form newsletter_form"><input type="hidden">
+                                    <div class="input-group input-group">
+                                        <input type="text" class="form-control" width="280px"
+                                            style="border-radius: 5px; margin-left: 2px;">
+                                        <span class="input-group-text p-0 border-0"
+                                            style="background-color: #ff0869; border-radius: 5px;">
+                                            <button class="btn h-100">
+                                                ارسال
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column w-100 px-5">
+                                <strong class="text-white mb-2"> روژا در شبکه های اجتماعی </strong>
+                                <div class="social-media">
+                                <a href="#" class="fa fa-facebook" aria-disabled="true"></a>
+                                <a href="#" class="fa fa-twitter" aria-disabled="true"></a>
+                                <a href="#" class="fa fa-youtube" aria-disabled="true"></a>
+                                <a href="#" class="fa fa-instagram" aria-disabled="true"></a>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <div class="footer-bottom row">
+            <div class="col-lg-4 col-12 d-flex flex-column">
+                <div class="d-flex justify-content-between">
+                    <img src="assets/img/logo.png">
+                </div>
+                <strong class="fw-bold my-3 fw-normal">اطلاعات تماس</strong>
+                <span class="my-2">
+                    <strong>بخش اداری:</strong>
+                    تهران، بلوار ميرداماد، جنب دفينه، بازار بزرگ ميرداماد، ساختمان اداری، ط 4، واحد 412
+                </span>
+                <span class="my-2">
+                    <strong>پست الکترونیکی:</strong> online@rojagroup.com
+                </span>
+            </div>
+            <div class="col-lg-4 col-12 d-flex flex-column">
+                <strong class="fw-bold my-3 text-subtitle-2 fw-normal">زیبا بمانید</strong>
+                <div class="about-us" style="height: 220px; overflow: hidden; transition: height 0.3s ease-in 0s;">
+                    <p class="text-justify lh-lg m-0">مجموعه فروشگاه های روژا با بیش از 25 سال سابقه در ارائه محصولات با
+                        کيفيت ، مرغوب و با اصالت از برندهای معتبر جهانی مشغول به فعاليت است. هم اکنون فروشگاه اینترنتی
+                        روژا در ادامه اين رسالت و سابقه درخشان، به دنبال ارائه محصولات با کيفيت و اورجينال از برندهای
+                        معتبر خارجی و ايرانی در محيط آنلاين است. مشتريان می توانند از ميان هزاران محصول با کيفيت خارجی و
+                        داخلی آرایشی، بهداشتی و عطر ، محصول مورد نظر خود را جستجو ، بررسی و انتخاب نمايند. در فروشگاه
+                        اینترنتی روژا مشتريان عزیز می توانيد به راحتی، خرید اینترنتی لذت بخش، مطمئن و آسان را تجربه کنند
+                        و کالای مورد نظر خود را به سرعت در سراسر ایران دریافت نمایند.</p>
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-12 d-flex">
+
+                <div class="col-6 d-flex flex-column align-items-center">
+                    <ul class="list-unstyled">
+                        <li class="my-2">
+                            <span>تماس با ما</span>
+                        </li>
+                        <li class="my-2">
+                            <span>درباره ما</span>
+                        </li>
+                        <li class="my-2">
+                            <span>فروشگاه های روژا</span>
+                        </li>
+                        <li class="my-2">
+                            <span>راهنمای سفارش و خرید</span>
+                        </li>
+                        <li class="my-2">
+                            <span>English</span>
+                        </li>
+                    </ul>
+                    <img src="assets/img/logo-ecunion.png" width="80" alt="">
+                </div>
+                <div class="col-6 d-flex flex-column align-items-center">
+                    <ul class="list-unstyled">
+                        <li class="my-2">
+                            <span>حریم خصوصی</span>
+                        </li>
+                        <li class="my-2">
+                            <span>فرصت‌های شغلی</span>
+                        </li>
+                        <li class="my-2">
+                            <span>قوانین و مقررات</span>
+                        </li>
+                        <li class="my-2">
+                            <span>ارسال هدیه</span>
+                        </li>
+                        <li class="my-2">
+                            <span>سوالات متداول</span>
+                        </li>
+                    </ul>
+                    <img src="assets/img/logo-nmd.png" width="90" alt="">
+                </div>
+
+
+                <div class="col-12 d-flex flex-column">
+
+
+                </div>
+            </div>
+        </div>
+
+        <script src="assets/js/jquery-3.7.0.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/script.js"></script>
+        <script src="assets/js/cart.js"></script>
+        <script src="assets/js/home.js"></script>
+        <script src="assets/js/product.js"></script>
+        <script src="assets/js/login.js"></script>
+
+
+
+</body>
+
+</html>

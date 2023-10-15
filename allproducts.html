@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تمام محصولات</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="styleSheet" href="assets/css/bootstrap.min.css">
+    <link rel="styleSheet" href="assets/css/homePage.css">
+    <link rel="styleSheet" href="assets/css/allproducts.css">
+    <link rel="styleSheet" href="assets/css/cart.css">
+    <link rel="styleSheet" href="assets/css/font.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+</head>
+
+<body>
+    <!-- add to basket modal -->
+    <div class="modal fade" id="basket-add-product-modal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content" data-bs-toggle="animation" data-bs-animation="fade-in">
+                <div class="modal-body text-success">
+                    <p style="text-align: center;">محصول به سبد خرید اضافه شد!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- remove product from basket alert -->
+    <div class="alert-box">
+        <div class="alert alert-danger remove-from-basket-alert visually-hidden">
+            <!-- <strong>!</strong><span>"sample" از سبد خرید شما حذف شد</span> -->
+        </div>
+    </div>
+
+
+    <!-- basket inner + products + info -->
+    <div class="basket-inner">
+        <button type="button" class="btn-close" aria-label="Close"></button>
+        <div class="basket-inner-products-list">
+
+        </div>
+        <div class="basket-inner-total">
+            <div class="basket-inner-info-row">
+                <span>مبلغ قابل پرداخت : <strong id="totalPrice">0</strong></span>
+            </div>
+            <div class="basket-inner-info-row">
+                <span>تعداد : <strong id="totalCount">0</strong></span>
+            </div>
+            <div class="basket-inner-info-row">
+                <span>سود شما : <strong id="totalDiscount">0</strong></span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="main-body">
+        <div class="row">
+            <!-- main navbar -->
+            <div class="row roja-fixed-navbar">
+                <div class="menubar roja-menubar col-lg-12">
+                    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+                        <div class="container-fluid">
+                            <img src="assets/img/logo.png" alt="فروشگاه روژا" width="130" height="40"
+                                class="d-inline-block align-text-top" id="rojaLogo">
+                            <div class="d-flex">
+                                <div class="search-box">
+                                    <input class="form-control me-2" id="searchInput" type="search"
+                                        placeholder=" جستجو در تمام محصولات..." aria-label="Search">
+                                    <div class="search-results-box visually-hidden">
+                                        <!-- search results -->
+                                        <div class="search-results">
+                                            <!-- <div class="serch-result-test">
+                                                <a class="search-result-link" href="#" style="text-decoration:none">
+                                                    <img class="search-result-img" src="assets/img/category/2.jpeg"
+                                                        title="" alt="">
+                                                    <div class="search-result-info">
+                                                        <span class="search-result-title row">name</span>
+                                                        <span class="search-result-price row">9000</span>
+                                                    </div>
+                                                </a>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline-success" id="searchBtn" type="submit">جستجو</button>
+                                <div class="back-btn visually-hidden">
+                                    <a class="btn" id="backBtn" href="homePage.html">بازگشت به صفحه‌ی اصلی</a>
+                                </div>
+                            </div>
+                            <div class="collapse navbar-collapse roja-nav" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <a class="nav-link active login" aria-current="page"
+                                            href="../roja new/login.html">ورود/عضویت</a>
+                                        <ul class="dropdown-menu login-user-dropdown rounded-0 rounded-bottom show visually-hidden"
+                                            aria-labelledby="navbarDropdown">
+                                            <li
+                                                class="dropdown-menu-item w-100 d-flex justify-content-start align-items-center btn">
+                                                <div class="ps-2 d-flex align-items-center" id="userProfileBasketShow">
+                                                    <a id="userProfileBasketShowLink" href="finalBasket.html">مشاهده‌ی
+                                                        سبد
+                                                        خرید</a>
+                                                </div>
+                                            </li>
+                                            <li
+                                                class="dropdown-menu-item w-100 d-flex justify-content-start align-items-center btn">
+                                                <div class="ps-2 d-flex align-items-center" id="userProfileLogout">
+                                                    <a id="userProfileLogoutLink">خروج از حساب
+                                                        کاربری</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item basket-logo">
+                                        <button type="button" class="btn position-relative basket-btn">
+                                            <a class="nav-link basket" href="#"><img class="material-icons"
+                                                    src="assets/img/basket-icon.png"></a>
+                                            <span
+                                                class="position-absolute top-90 start-90 translate-middle badge rounded-pill bg-dark text-light"
+                                                id="basket-badge">
+                                                0
+                                                <span class="visually-hidden">basket-products</span>
+                                            </span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="container-fluid">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mb-0 h1" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    دسته بندی محصولات
+                                </a>
+                                <ul class="dropdown-menu products-categorize-dropdown rounded-0 rounded-bottom show visually-hidden"
+                                    aria-labelledby="navbarDropdown"
+                                    style="width: 100%; padding: 15px; margin-top: 10px;">
+                                    <li
+                                        class="dropdown-menu-item w-100 d-flex justify-content-start align-items-center">
+                                        <div class="w-75 ps-2 d-flex align-items-center"><a href="bodyShower.html"
+                                                id="bodyShower">شوینده بدن</a></div>
+                                    </li>
+                                    <li
+                                        class="dropdown-menu-item w-100 d-flex justify-content-start align-items-center">
+                                        <div class="w-75 ps-2 d-flex align-items-center"><a href="bodyLotion.html"
+                                                id="bodyLotion"> لوسیون بدن</a></div>
+                                    </li>
+                                    <li
+                                        class="dropdown-menu-item w-100 d-flex justify-content-start align-items-center">
+                                        <div class="w-75 ps-2 d-flex align-items-center"><a href="deodorant.html"
+                                                id="deodorant">دئودورانت</a></div>
+                                    </li>
+                                    <li
+                                        class="dropdown-menu-item w-100 d-flex justify-content-start align-items-center">
+                                        <div class="w-75 ps-2 d-flex align-items-center"><a id="bodySplash"
+                                                href="bodySplash.html">بادی اسپلش</a></div>
+                                    </li>
+                                    <li
+                                        class="dropdown-menu-item w-100 d-flex justify-content-start align-items-center">
+                                        <div class="w-75 ps-2 d-flex align-items-center"><a id="allProductsLink"
+                                                href="allproducts.html">مشاهده‌ی تمام محصولات</a></div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <ul id="righty" class="navbar-nav">
+                                <li class="nav-item second-nav">
+                                    <a class="nav-link" href="#" aria-disabled="true"> برندها </a>
+                                </li>
+                                <li class="nav-item second-nav">
+                                    <a class="nav-link" href="#" aria-disabled="true"> کارت هدیه روژا </a>
+                                </li>
+                                <li class="nav-item second-nav">
+                                    <a class="nav-link" href="#" aria-disabled="true"> مشاوره رایگان </a>
+                                </li>
+                                <li class="nav-item second-nav">
+                                    <a class="nav-link" href="#" aria-disabled="true"> فروش سازمانی </a>
+                                </li>
+                                <li class="nav-item second-nav">
+                                    <a class="nav-link" href="#" aria-disabled="true"> وبلاگ روژا </a>
+                                </li>
+                                <li class="nav-item second-nav">
+                                    <a class="nav-link" style="color: deeppink;" href="#" aria-disabled="true"> فروش
+                                        ویژه
+                                        روژا </a>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav" style="justify-content: left;">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" aria-disabled="true"> باشگاه مشتریان </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" aria-disabled="true"> شعب روژا </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+
+            <!-- products container -->
+            <div class="second-body">
+                <div class="suggest-products-container">
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div class="footer">
+
+        </div>
+
+    </div>
+
+    <script src="assets/js/jquery-3.7.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/product.js"></script>
+    <script src="assets/js/login.js"></script>
+    <script src="assets/js/cart.js"></script>
+
+
+</body>
+
+</html>

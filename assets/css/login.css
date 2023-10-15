@@ -1,0 +1,86 @@
+.body-img {
+    position: relative;
+    display: flex;
+}
+
+.login-img {
+    width: 100%;
+    height: 100%;
+}
+
+.login-info {
+    position: absolute;
+    bottom: 25%;
+    left: 39%;
+    display: flex;
+    align-items: center;
+}
+
+.container-fluid {
+    padding-left: 0;
+}
+
+.login-info-phone-number {
+    font-size: 20px;
+}
+
+.login-info-logo {
+    width: 50px;
+}
+
+body {
+    overflow: hidden;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: center;
+}
+
+.body-form {
+    position: sticky;
+    width: 50%;
+    top: 35%;
+    right: 10%;
+}
+
+.login-btn {
+    margin-top: 40px;
+}
+
+.fw-bolder {
+    font-weight: bolder !important;
+    font-size: large;
+}
+
+.login-hint {
+    margin-bottom: 10px;
+}
+
+.login-btn {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid #00000078;
+}
+
+.login-sumbit-btn {
+    width: 422.26px;
+}
+
+.number-input {
+    height: 40px;
+    border-radius: 4px;
+    border-color: whitesmoke;
+}
+#backBtn{
+    display: inline;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    border: 2px solid #fe2c6b61;
+}

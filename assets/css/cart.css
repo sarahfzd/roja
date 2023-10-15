@@ -1,0 +1,82 @@
+.basket-inner {
+    background-color: #faeff2;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -270px;
+    width: 270px;
+    z-index: 1031;
+    transition: all 0.3s;
+    padding: 10px;
+}
+
+.basket-main-show {
+    transition: all 0.3s;
+    left: 0;
+}
+
+.basket-inner-total {
+    position: fixed;
+    bottom: 15px;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+    font-size: 15px;
+}
+
+.basket-inner-product-test {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    border: 2px solid #bdcbb8;
+    margin: 2px;
+    background-color: #ffffffa1;
+}
+
+.basket-inner-product-test-image {
+    width: 30%;
+}
+
+.basket-inner-product-test-img {
+    width: 100%;
+    padding: 2px;
+}
+
+.basket-inner-product-test-description {
+    width: 50%;
+}
+
+.basket-inner-product-test-count {
+    border: 2px solid #bdcbb8;
+    display: flex;
+    position: relative;
+    width: 14%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.basket-inner-product-test-count-increase,
+.basket-inner-product-test-count-decrease {
+    width: 100%;
+    text-align: center;
+    background-color: #ddded669;
+}
+
+.counter-input {
+    border: none;
+    background-color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.basket-inner-products-list {
+    max-height: 650px;
+    overflow-y: auto;
+    width: 100%;
+    margin-top: 0px;
+    overflow-x: hidden;
+    font-size: 13px;
+    padding: 7px;
+}

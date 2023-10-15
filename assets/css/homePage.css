@@ -1,0 +1,331 @@
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #e7e7e7
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ffbfd9;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #e5acc3;
+}
+
+.me-2 {
+    width: 425px;
+    margin-left: 5px;
+}
+
+.material-icons {
+    width: 23px;
+}
+
+.roja-nav .active {
+    border: 2px solid #fad7de;
+    border-radius: 5px;
+    height: 45px;
+}
+
+.basket {
+    border: 2px solid #fad7de;
+    border-radius: 5px;
+    margin-top: -6px;
+    margin-right: -5px;
+}
+
+.navbar {
+    height: 114px;
+    display: block;
+    --bs-navbar-padding-y: 0.5rem;
+}
+
+.container-fluid {
+    list-style-type: none;
+}
+
+.nav-item {
+    padding: 0px;
+}
+
+.me-2 {
+    margin-right: 1.5rem !important;
+}
+
+.btn .badge {
+    top: 45px;
+    left: 15px;
+}
+
+.dropdown-menu[data-bs-popper] {
+    left: -25px;
+    text-align: right;
+}
+
+.row {
+    overflow: hidden;
+    --bs-gutter-x: 0;
+}
+
+.shopping-cart-icon {
+    width: 30px;
+}
+
+.login-btn {
+    color: #81858C;
+    border: 1px solid #e6e6e6;
+    border-radius: 7px;
+    height: 100%;
+}
+
+.search-input .me-2 {
+    margin-right: 1.5rem !important;
+}
+
+.search-bar-btn {
+    margin-right: 5px;
+    background-color: #8eb4a238;
+    font-size: 14px;
+}
+
+.btn-outline-success:hover {
+    background-color: #617b6f43;
+}
+
+#box1top,
+#box2top,
+#box3top,
+#box4top {
+    width: 100%;
+
+    border-radius: 10px;
+}
+
+.boxes4-top {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxes2-top {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.boxes2-top-left,
+.boxes2-top-right {
+    width: 50%;
+}
+
+#boxes2topSecond,
+#boxes2topFirst {
+    width: 100%;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.container {
+    width: 100%;
+}
+
+.second-body-home-page {
+    margin-top: 114px;
+    position: relative;
+
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: #07070747;
+}
+
+.login-user-dropdown {
+    margin-left: 20px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+#allProductsLink:hover {
+    color: deeppink;
+}
+
+#allProductsLink {
+    color: black;
+    font-weight: 1000;
+    display: block;
+    text-align: initial;
+    text-decoration: none;
+}
+
+#bodySplash:hover {
+    color: #b2cb75;
+}
+
+#bodyShower:hover {
+    color: #ccbc7d;
+}
+
+#bodyLotion:hover {
+    color: #b798c1;
+}
+
+#deodorant:hover {
+    color: #ca9cb1;
+}
+
+#userProfileBasketShowLink,
+#userProfileLogoutLink {
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+}
+
+#bodySplash,
+#bodyShower,
+#bodyLotion,
+#deodorant {
+    text-decoration: none;
+    color: black;
+}
+
+#box1topA,
+#box2topA,
+#box3topA,
+#box4topA {
+    width: 24%;
+    margin: 9px;
+    border-radius: 10px;
+}
+
+
+
+
+.search-results-box {
+    width: 425px;
+    background-color: #f9f4f6e8;
+    border-radius: 3px 3px 8px 8px;
+    border: 1px solid #db709373;
+    position: absolute;
+    min-height: 120px;
+    max-height: 600px;
+    right: 166px;
+    top: 52px;
+    overflow-y: auto;
+
+}
+
+
+.search-box {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    font-size: 14px;
+}
+
+.search-result-img {
+    width: 25%;
+    border-radius: 5px;
+}
+
+.search-result-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    text-decoration: none;
+    color: #7e3f53;
+    font-size: 13px;
+}
+
+.search-result-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.css-for-search {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#backBtn {
+    border: 2px solid #fad7de;
+    color: #8a094f;
+    margin-right: 5px;
+}
+
+.footer-bottom {
+    padding: 40px;
+    background-color: #fef3f1;
+    font-size: 13px;
+    display: flex;
+    align-items: baseline;
+}
+
+.to-checkout-page {
+    text-decoration: none;
+    color: #ff1393;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px;
+}
+
+.checkout-link {
+    text-decoration: none;
+    color: #ff1393;
+}
+
+.fa {
+    padding: 15px;
+    font-size: 30px;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 100%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-youtube {
+    background: #bb0000;
+    color: white;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+.social-media{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
